@@ -137,33 +137,55 @@
 
       <div class="banner">
         <div class="notice-title">[공지사항]</div>
-        <ul class="notice-list">
-          <li>정식 오픈 준비 중입니다.</li>
-          <li>홈페이지에서 최신 공지 및 다운로드를 확인해 주세요.</li>
-          <li>문의사항은 홈페이지 게시판을 이용해 주세요.</li>
-        </ul>
+<ul id="noticeList" class="notice-list"></ul>
       </div>
 
       <div class="footer">Copyright © 천일서버. All Rights Reserved.</div>
     </div>
   </div>
 
-  <script>
-    fetch('status.txt?' + new Date().getTime())
-      .then(function(res) { return res.text(); })
-      .then(function(data) {
-        var status = data.replace(/^\s+|\s+$/g, '');
-        var dot = document.getElementById('statusDot');
-        var text = document.getElementById('statusText');
+<script>
+function loadText(url, callback) {
+  try {
+    var xhr = new ActiveXObject("Microsoft.XMLHTTP");
+    xhr.open("GET", url + "?t=" + new Date().getTime(), false);
+    xhr.send();
+    if (xhr.status == 200) {
+      callback(xhr.responseText);
+    }
+  } catch (e) {
+  }
+}
 
-        if (status === 'CHECK') {
-          dot.style.background = '#e74c3c';
-          text.innerHTML = '서버 점검중';
-        } else {
-          dot.style.background = '#2ecc71';
-          text.innerHTML = '서버 가동중';
-        }
-      });
-  </script>
+// 공지 불러오기
+loadText("notice.txt", function(data) {
+  var lines = data.split('\n');
+  var html = '';
+
+  for (var i = 0; i < lines.length; i++) {
+    var line = lines[i].replace(/^\s+|\s+$/g, '');
+    if (line !== '') {
+      html += '<li>' + line + '</li>';
+    }
+  }
+
+  document.getElementById('noticeList').innerHTML = html;
+});
+
+// 상태 불러오기
+loadText("status.txt", function(data) {
+  var status = data.replace(/^\s+|\s+$/g, '');
+  var dot = document.getElementById('statusDot');
+  var text = document.getElementById('statusText');
+
+  if (status === 'CHECK') {
+    dot.style.background = '#e74c3c';
+    text.innerHTML = '서버 점검중';
+  } else {
+    dot.style.background = '#2ecc71';
+    text.innerHTML = '서버 가동중';
+  }
+});
+</script>
 </body>
 </html>
