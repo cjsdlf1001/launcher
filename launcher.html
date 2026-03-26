@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>천일서버 런처</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #050505;
+      font-family: Gulim, Dotum, Arial, sans-serif;
+      color: #f2d27a;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at top, #1a1406 0%, #050505 55%),
+        #050505;
+    }
+
+    .wrap {
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      padding: 12px;
+    }
+
+    .panel {
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      border: 1px solid #6f5420;
+      background: #0a0a0a;
+    }
+
+    .top {
+      padding: 10px 12px 8px 12px;
+      border-bottom: 1px solid #4c3913;
+      background: #120d04;
+    }
+
+    .title {
+      margin: 0;
+      font-size: 18px;
+      font-weight: bold;
+      color: #ffcf63;
+      letter-spacing: 1px;
+    }
+
+    .sub {
+      margin-top: 4px;
+      font-size: 11px;
+      color: #bfa36a;
+    }
+
+    .banner {
+      margin: 10px 12px 0 12px;
+      padding: 10px;
+      border: 1px solid #6f5420;
+      background: #151007;
+      color: #ffe08b;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .notice-title {
+      font-weight: bold;
+      color: #ffb84d;
+      margin-bottom: 4px;
+    }
+
+    .notice-list {
+      margin: 0;
+      padding-left: 16px;
+    }
+
+    .notice-list li {
+      margin: 2px 0;
+    }
+
+    .buttons {
+      margin: 12px;
+      overflow: hidden;
+    }
+
+    .btn {
+      display: block;
+      float: left;
+      width: 47%;
+      margin: 0 3% 8px 0;
+      padding: 10px 0;
+      text-align: center;
+      text-decoration: none;
+      color: #2a1800;
+      font-size: 12px;
+      font-weight: bold;
+      border: 1px solid #d1a448;
+      background: #f0c45f;
+      cursor: pointer;
+    }
+
+    .btn.right {
+      margin-right: 0;
+    }
+
+    .btn:hover {
+      background: #ffd778;
+    }
+
+    .info {
+      margin: 4px 12px 0 12px;
+      padding: 10px;
+      border: 1px solid #3f3010;
+      background: #0c0c0c;
+      color: #d7bd80;
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    .footer {
+      margin: 10px 12px 0 12px;
+      padding-top: 8px;
+      border-top: 1px solid #3a2b0d;
+      color: #8f7a4d;
+      font-size: 10px;
+      text-align: center;
+    }
+  </style>
+  <script type="text/javascript">
+    function goUrl(url) {
+      try {
+        window.location.href = url;
+      } catch (e) {
+      }
+      return false;
+    }
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <div class="panel">
+      <div class="top">
+        <h1 class="title">천일서버</h1>
+        <div class="sub">천년의 감성을 살린 서버 · 안정적인 접속 환경</div>
+      </div>
+
+      <div class="banner">
+        <div class="notice-title">[공지사항]</div>
+        <ul class="notice-list">
+          <li>정식 오픈 준비 중입니다.</li>
+          <li>홈페이지에서 최신 공지 및 다운로드를 확인해 주세요.</li>
+          <li>문의사항은 홈페이지 게시판을 이용해 주세요.</li>
+        </ul>
+      </div>
+
+      <div class="buttons">
+        <a class="btn" href="https://1000y1001.com" onclick="return goUrl('https://1000y1001.com');">홈페이지</a>
+        <a class="btn right" href="https://1000y1001.com" onclick="return goUrl('https://1000y1001.com');">회원가입</a>
+        <a class="btn" href="https://1000y1001.com" onclick="return goUrl('https://1000y1001.com');">다운로드</a>
+        <a class="btn right" href="https://1000y1001.com" onclick="return goUrl('https://1000y1001.com');">공지확인</a>
+      </div>
+
+      <div class="info">
+        <div>· 접속기 내 페이지는 구형 브라우저 엔진에서도 오류 없이 열리도록 단순 구성되어 있습니다.</div>
+        <div>· 실제 상세 내용은 홈페이지에서 확인해 주세요.</div>
+        <div>· 서버 정보와 이벤트 내용은 수시로 업데이트됩니다.</div>
+      </div>
+
+      <div class="footer">Copyright ⓒ 천일서버. All Rights Reserved.</div>
+    </div>
+  </div>
+</body>
+</html>
