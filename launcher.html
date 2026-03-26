@@ -2,144 +2,130 @@
 <html lang="ko">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>천일서버 런처</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      background: #050505;
-      font-family: Gulim, Dotum, Arial, sans-serif;
-      color: #f2d27a;
-    }
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>천일서버 런처</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #050505;
+    font-family: Gulim, Dotum, Arial, sans-serif;
+    color: #f2d27a;
+  }
 
-    body {
-      background:
-        radial-gradient(circle at top, #1a1406 0%, #050505 55%),
-        #050505;
-    }
+  body {
+    background:
+      radial-gradient(circle at top, #1a1406 0%, #050505 55%),
+      #050505;
+  }
 
-    .wrap {
-      width: 100%;
-      height: 100%;
-      box-sizing: border-box;
-      padding: 12px;
-    }
+  .wrap {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+  }
 
-    .panel {
-      width: 100%;
-      height: 100%;
-      box-sizing: border-box;
-      border: 1px solid #6f5420;
-      background: #0a0a0a;
-    }
+  .panel {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: 1px solid #6f5420;
+    background: #0a0a0a;
+  }
 
-    .top {
-      padding: 10px 12px 8px 12px;
-      border-bottom: 1px solid #4c3913;
-      background: #120d04;
-    }
+  .top {
+    padding: 10px 12px 8px 12px;
+    border-bottom: 1px solid #4c3913;
+    background: #120d04;
+  }
 
-    .title {
-      margin: 0;
-      font-size: 18px;
-      font-weight: bold;
-      color: #ffcf63;
-      letter-spacing: 1px;
-    }
+  .title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffcf63;
+    letter-spacing: 1px;
+  }
 
-    .sub {
-      margin-top: 4px;
-      font-size: 11px;
-      color: #bfa36a;
-    }
+  .sub {
+    margin-top: 4px;
+    font-size: 11px;
+    color: #bfa36a;
+  }
 
-    .banner {
-      margin: 10px 12px 0 12px;
-      padding: 10px;
-      border: 1px solid #6f5420;
-      background: #151007;
-      color: #ffe08b;
-      font-size: 12px;
-      line-height: 1.6;
-    }
+  .status-box {
+    margin: 10px 12px 0 12px;
+    padding: 8px 10px;
+    border: 1px solid #6f5420;
+    background: #100c05;
+  }
 
-    .notice-title {
-      font-weight: bold;
-      color: #ffb84d;
-      margin-bottom: 4px;
-    }
+  .status-line {
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #ffe08b;
+  }
 
-    .notice-list {
-      margin: 0;
-      padding-left: 16px;
-    }
+  .status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    background: #2ecc71;
+  }
 
-    .notice-list li {
-      margin: 2px 0;
-    }
+  .banner {
+    margin: 10px 12px 0 12px;
+    padding: 10px;
+    border: 1px solid #6f5420;
+    background: #151007;
+    color: #ffe08b;
+    font-size: 12px;
+    line-height: 1.6;
+  }
 
-    .buttons {
-      margin: 12px;
-      overflow: hidden;
-    }
+  .notice-title {
+    font-weight: bold;
+    color: #ffb84d;
+    margin-bottom: 4px;
+  }
 
-    .btn {
-      display: block;
-      float: left;
-      width: 47%;
-      margin: 0 3% 8px 0;
-      padding: 10px 0;
-      text-align: center;
-      text-decoration: none;
-      color: #2a1800;
-      font-size: 12px;
-      font-weight: bold;
-      border: 1px solid #d1a448;
-      background: #f0c45f;
-      cursor: pointer;
-    }
+  .notice-list {
+    margin: 0;
+    padding-left: 16px;
+  }
 
-    .btn.right {
-      margin-right: 0;
-    }
+  .notice-list li {
+    margin: 2px 0;
+  }
 
-    .btn:hover {
-      background: #ffd778;
-    }
+  .info {
+    margin: 10px 12px 0 12px;
+    padding: 10px;
+    border: 1px solid #3f3010;
+    background: #0c0c0c;
+    color: #d7bd80;
+    font-size: 11px;
+    line-height: 1.7;
+  }
 
-    .info {
-      margin: 4px 12px 0 12px;
-      padding: 10px;
-      border: 1px solid #3f3010;
-      background: #0c0c0c;
-      color: #d7bd80;
-      font-size: 11px;
-      line-height: 1.7;
-    }
-
-    .footer {
-      margin: 10px 12px 0 12px;
-      padding-top: 8px;
-      border-top: 1px solid #3a2b0d;
-      color: #8f7a4d;
-      font-size: 10px;
-      text-align: center;
-    }
-  </style>
-  <script type="text/javascript">
-    function goUrl(url) {
-      try {
-        window.location.href = url;
-      } catch (e) {
-      }
-      return false;
-    }
-  </script>
+  .footer {
+    margin: 10px 12px 0 12px;
+    padding-top: 8px;
+    border-top: 1px solid #3a2b0d;
+    color: #8f7a4d;
+    font-size: 10px;
+    text-align: center;
+  }
+</style>
 </head>
 <body>
   <div class="wrap">
@@ -149,20 +135,16 @@
         <div class="sub">천년의 감성을 살린 서버 · 안정적인 접속 환경</div>
       </div>
 
-      <div class="banner">
-        <div class="notice-title">[공지사항]</div>
-        <ul class="notice-list">
-          <li>정식 오픈 준비 중입니다.</li>
-          <li>홈페이지에서 최신 공지 및 다운로드를 확인해 주세요.</li>
-          <li>문의사항은 홈페이지 게시판을 이용해 주세요.</li>
-        </ul>
+      <div class="status-box">
+        <div class="status-line">
+          <span id="statusDot" class="status-dot"></span>
+          <span id="statusText">서버 가동중</span>
+        </div>
       </div>
 
-      <div class="buttons">
-        <a class="btn" href="https://1000y1001.com" onclick="return goUrl('https://1000y1001.com');">홈페이지</a>
-        <a class="btn right" href="https://1000y1001.com" onclick="return goUrl('https://1000y1001.com');">회원가입</a>
-        <a class="btn" href="https://1000y1001.com" onclick="return goUrl('https://1000y1001.com');">다운로드</a>
-        <a class="btn right" href="https://1000y1001.com" onclick="return goUrl('https://1000y1001.com');">공지확인</a>
+      <div class="banner">
+        <div class="notice-title">[공지사항]</div>
+<ul id="noticeList" class="notice-list"></ul>
       </div>
 
       <div class="info">
@@ -171,8 +153,44 @@
         <div>· 서버 정보와 이벤트 내용은 수시로 업데이트됩니다.</div>
       </div>
 
-      <div class="footer">Copyright ⓒ 천일서버. All Rights Reserved.</div>
+      <div class="footer">Copyright © 천일서버. All Rights Reserved.</div>
     </div>
   </div>
+
+<script>
+fetch('notice.txt?' + new Date().getTime())
+  .then(function(res) { return res.text(); })
+  .then(function(data) {
+    var lines = data.split('\n');
+    var html = '';
+
+    for (var i = 0; i < lines.length; i++) {
+      var line = lines[i].replace(/^\s+|\s+$/g, '');
+      if (line !== '') {
+        html += '<li>' + line + '</li>';
+      }
+    }
+
+    document.getElementById('noticeList').innerHTML = html;
+  });
+</script>
+
+  <script>
+    fetch('status.txt?' + new Date().getTime())
+      .then(function(res) { return res.text(); })
+      .then(function(data) {
+        var status = data.replace(/^\s+|\s+$/g, '');
+        var dot = document.getElementById('statusDot');
+        var text = document.getElementById('statusText');
+
+        if (status === 'CHECK') {
+          dot.style.background = '#e74c3c';
+          text.innerHTML = '서버 점검중';
+        } else {
+          dot.style.background = '#2ecc71';
+          text.innerHTML = '서버 가동중';
+        }
+      });
+  </script>
 </body>
 </html>
