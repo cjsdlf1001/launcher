@@ -139,10 +139,10 @@ function goUrl(url){
     <div class="sub">천년의 감성을 살린 서버 · 안정적인 접속 환경</div>
   </div>
 
-  <div class="status-box">
-    <span id="statusDot" class="status-dot"></span>
-    <span id="statusText">서버 상태 확인중</span>
-  </div>
+<div class="status-box">
+  <span class="status-dot" style="background:#2ecc71;"></span>
+  서버 가동중
+</div>
 
   <div class="banner">
     <div class="notice-title">[공지사항]</div>
@@ -156,33 +156,13 @@ function goUrl(url){
 </div>
 </div>
 
-<!-- 공지 -->
-<script>
-fetch('notice.txt?' + new Date().getTime())
-.then(res => res.text())
-.then(data => {
-  var lines = data.split('\n');
-  var html = '';
-  for (var i = 0; i < lines.length; i++) {
-    var line = lines[i].trim();
-    if(line !== ''){
-      html += '<li>' + line + '</li>';
-    }
-  }
-  document.getElementById('noticeList').innerHTML = html;
-});
-</script>
-
-<!-- 상태 -->
-<script>
-fetch('status.txt?' + new Date().getTime())
-.then(res => res.text())
-.then(data => {
-  var status = data.trim();
+// 상태 불러오기
+loadText("status.txt", function(data) {
+  var status = data.replace(/^\s+|\s+$/g, '');
   var dot = document.getElementById('statusDot');
   var text = document.getElementById('statusText');
 
-  if(status === 'CHECK'){
+  if (status === 'CHECK') {
     dot.style.background = '#e74c3c';
     text.innerHTML = '서버 점검중';
   } else {
