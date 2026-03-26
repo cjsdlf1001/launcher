@@ -107,24 +107,17 @@
     margin: 2px 0;
   }
 
-  .info {
-    margin: 10px 12px 0 12px;
-    padding: 10px;
-    border: 1px solid #3f3010;
-    background: #0c0c0c;
-    color: #d7bd80;
-    font-size: 11px;
-    line-height: 1.7;
-  }
+.footer {
+  margin: 12px 12px 0 12px;
+  padding-top: 10px;
+  border-top: 1px solid #6f5420;
+  color: #e5c97a;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 3px rgba(255, 215, 120, 0.3);
+}
 
-  .footer {
-    margin: 10px 12px 0 12px;
-    padding-top: 8px;
-    border-top: 1px solid #3a2b0d;
-    color: #8f7a4d;
-    font-size: 10px;
-    text-align: center;
-  }
 </style>
 </head>
 <body>
@@ -144,36 +137,16 @@
 
       <div class="banner">
         <div class="notice-title">[공지사항]</div>
-<ul id="noticeList" class="notice-list"></ul>
-      </div>
-
-      <div class="info">
-        <div>· 접속기 내 페이지는 구형 브라우저 엔진에서도 오류 없이 열리도록 단순 구성되어 있습니다.</div>
-        <div>· 실제 상세 내용은 홈페이지에서 확인해 주세요.</div>
-        <div>· 서버 정보와 이벤트 내용은 수시로 업데이트됩니다.</div>
+        <ul class="notice-list">
+          <li>정식 오픈 준비 중입니다.</li>
+          <li>홈페이지에서 최신 공지 및 다운로드를 확인해 주세요.</li>
+          <li>문의사항은 홈페이지 게시판을 이용해 주세요.</li>
+        </ul>
       </div>
 
       <div class="footer">Copyright © 천일서버. All Rights Reserved.</div>
     </div>
   </div>
-
-<script>
-fetch('notice.txt?' + new Date().getTime())
-  .then(function(res) { return res.text(); })
-  .then(function(data) {
-    var lines = data.split('\n');
-    var html = '';
-
-    for (var i = 0; i < lines.length; i++) {
-      var line = lines[i].replace(/^\s+|\s+$/g, '');
-      if (line !== '') {
-        html += '<li>' + line + '</li>';
-      }
-    }
-
-    document.getElementById('noticeList').innerHTML = html;
-  });
-</script>
 
   <script>
     fetch('status.txt?' + new Date().getTime())
