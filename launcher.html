@@ -122,34 +122,58 @@
 
       <div class="status-box">
         <span id="statusDot" class="status-dot"></span>
-        <span id="statusText">서버 가동중</span>
+        <span id="statusText">서버 상태 확인중</span>
       </div>
 
       <div class="banner">
         <div class="notice-title">[공지사항]</div>
-<ul id="noticeList" class="notice-list"></ul>
+        <ul id="noticeList" class="notice-list"></ul>
       </div>
 
-      <script>
-var xhr = new ActiveXObject("Microsoft.XMLHTTP");
-xhr.open("GET", "notice.txt", false);
-xhr.send();
-
-var lines = xhr.responseText.split("\n");
-var html = "";
-
-for (var i = 0; i < lines.length; i++) {
-  var line = lines[i].replace(/^\s+|\s+$/g, '');
-  if (line !== '') {
-    html += "<li>" + line + "</li>";
-  }
-}
-
-document.getElementById("noticeList").innerHTML = html;
-</script>
-      
       <div class="footer">Copyright © 천일서버. All Rights Reserved.</div>
     </div>
   </div>
+
+  <script>
+    function loadText(url, callback) {
+      try {
+        var xhr = new ActiveXObject("Microsoft.XMLHTTP");
+        xhr.open("GET", url + "?t=" + new Date().getTime(), false);
+        xhr.send();
+        if (xhr.status == 200) {
+          callback(xhr.responseText);
+        }
+      } catch (e) {
+      }
+    }
+
+    loadText("notice.txt", function(data) {
+      var lines = data.split('\n');
+      var html = '';
+
+      for (var i = 0; i < lines.length; i++) {
+        var line = lines[i].replace(/^\s+|\s+$/g, '');
+        if (line !== '') {
+          html += '<li>' + line + '</li>';
+        }
+      }
+
+      document.getElementById('noticeList').innerHTML = html;
+    });
+
+    loadText("status.txt", function(data) {
+      var status = data.replace(/^\s+|\s+$/g, '');
+      var dot = document.getElementById('statusDot');
+      var text = document.getElementById('statusText');
+
+      if (status === 'CHECK') {
+        dot.style.background = '#e74c3c';
+        text.innerHTML = '서버 점검중';
+      } else {
+        dot.style.background = '#2ecc71';
+        text.innerHTML = '서버 가동중';
+      }
+    });
+  </script>
 </body>
 </html>
