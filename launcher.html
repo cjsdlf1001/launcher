@@ -5,85 +5,93 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <title>천일서버 런처</title>
 <style>
-  html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    background: #050505;
-    font-family: Gulim, Dotum, Arial, sans-serif;
-    color: #f2d27a;
-    overflow: hidden;
-  }
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: #050505;
+  font-family: Gulim, Dotum, Arial, sans-serif;
+  color: #f2d27a;
+  overflow: hidden;
+}
 
-  body {
-    background:
-      radial-gradient(circle at top, #1a1406 0%, #050505 55%),
-      #050505;
-  }
+body {
+  background:
+    radial-gradient(circle at top, #1a1406 0%, #050505 55%),
+    #050505;
+}
 
-  .wrap {
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    padding: 12px;
-  }
+.wrap {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+}
 
-  .panel {
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    border: 1px solid #6f5420;
-    background: #0a0a0a;
-  }
+.panel {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border: 1px solid #6f5420;
+  background: #0a0a0a;
 
-  .top {
-    padding: 10px 12px 8px 12px;
-    border-bottom: 1px solid #4c3913;
-    background: #120d04;
-  }
+  display: flex;
+  flex-direction: column;
+}
 
-  .title {
-    margin: 0;
-    font-size: 18px;
-    font-weight: bold;
-    color: #ffcf63;
-    letter-spacing: 1px;
-  }
+.top {
+  padding: 10px 12px 8px 12px;
+  border-bottom: 1px solid #4c3913;
+  background: #120d04;
+}
 
-  .sub {
-    margin-top: 4px;
-    font-size: 11px;
-    color: #bfa36a;
-  }
+.title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffcf63;
+  letter-spacing: 1px;
+}
 
-  .status-box {
-    margin: 10px 12px 0 12px;
-    padding: 8px 10px;
-    border: 1px solid #6f5420;
-    background: #100c05;
-    color: #ffe08b;
-    font-size: 14px;
-    font-weight: bold;
-  }
+.sub {
+  margin-top: 4px;
+  font-size: 11px;
+  color: #bfa36a;
+}
 
-  .status-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    display: inline-block;
-    margin-right: 6px;
-    background: #2ecc71;
-  }
+.status-box {
+  margin: 10px 12px 0 12px;
+  padding: 8px 10px;
+  border: 1px solid #6f5420;
+  background: #100c05;
+  color: #ffe08b;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 6px;
+  background: #2ecc71;
+}
 
 .banner {
-  margin: 8px 12px 0 12px;
+  margin: 8px 12px 12px 12px;
   padding: 10px 12px 0 12px;
   border: 1px solid #6f5420;
   background: #151007;
   color: #ffe08b;
   font-size: 12px;
   line-height: 1.5;
+
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 
 .notice-title {
@@ -102,7 +110,7 @@
 }
 
 .footer {
-  margin-top: 8px;
+  margin-top: auto;
   padding: 4px 0 2px 0;
   border-top: 1px solid #6f5420;
   color: #e5c97a;
