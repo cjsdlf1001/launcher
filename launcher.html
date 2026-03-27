@@ -78,12 +78,12 @@
 
   .banner {
     margin: 8px 12px 0 12px;
-    padding: 6px 8px;
+    padding: 10px 12px;
     border: 1px solid #6f5420;
     background: #151007;
     color: #ffe08b;
     font-size: 11px;
-    line-height: 1.4;
+    line-height: 1.5;
   }
 
   .notice-title {
@@ -101,15 +101,16 @@
     margin: 1px 0;
   }
 
-  .footer {
-    margin: 12px 12px 0 12px;
-    padding-top: 10px;
-    border-top: 1px solid #6f5420;
-    color: #e5c97a;
-    font-size: 12px;
-    text-align: center;
-    letter-spacing: 0.5px;
-  }
+  position: absolute;
+  bottom: 5px;          
+  left: 12px;
+  right: 12px;
+  border-top: 1px solid #6f5420;
+  padding-top: 6px;
+  color: #e5c97a;
+  font-size: 10px;
+  text-align: center;
+}
 </style>
 </head>
 <body>
@@ -166,7 +167,7 @@
       var dot = document.getElementById('statusDot');
       var text = document.getElementById('statusText');
 
-      if (status === 'CHECK') {
+      if (status === '점검중') {
         dot.style.background = '#e74c3c';
         text.innerHTML = '서버 점검중';
       } else {
